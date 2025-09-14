@@ -1,0 +1,20 @@
+plugins {
+    id 'project-conventions'
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'net.datafaker:datafaker:2.3.1'
+}
+
+springBoot {
+    mainClass = 'com.reliaquest.server.ServerApplication'
+}
+
+configurations {
+    all {
+        exclude group: "org.slf4j", module: "slf4j-log4j12"
+        exclude group: "org.apache.logging.log4j"
+        exclude group: "org.gradle", module: "gradle-logging"
+    }
+}

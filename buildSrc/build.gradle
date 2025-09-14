@@ -1,0 +1,20 @@
+plugins {
+    id 'groovy-gradle-plugin'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-gradle-plugin:3.2.10'
+    implementation 'com.diffplug.spotless:spotless-plugin-gradle:6.25.0'
+}
+
+configurations {
+    all {
+        exclude group: "org.slf4j", module: "slf4j-log4j12"
+        exclude group: "org.apache.logging.log4j"
+        exclude group: "org.gradle", module: "gradle-logging"
+    }
+}
